@@ -20,15 +20,19 @@ xauth = {
 		if(!xauth.loaded){
 			// Handle page reloads
 			iframe.src = iframe.src;
+		}else{
+			xauth._init();
 		}
 	},
 	_callbacks: [],
 	addOnLoad: function(/*Function*/ callback){
 		xauth._callbacks.push(callback);
 	},
-	_init: function(){
+	_init: function(callback){
 		xauth.loaded = true;
-		document.getElementsByTagName("iframe")[0].src = xauth.url;
+		if(xauth.url){
+			document.getElementsByTagName("iframe")[0].contentWindow.location = xauth.url;
+		}
 	},
 	_callback: function(status, token){
 		for(var c=xauth._callbacks, i=0, l=c.length; i<l; i++){
