@@ -3,8 +3,8 @@
 <html>
 	<head>
 		<script type="text/javascript" charset="utf-8">
-			var l = window.name;
 			<?php if ($_POST['done']): ?>
+				var l = window.name;
 				window.name = "true,sometoken";
 				window.location = l;
 			<?php endif; ?>
