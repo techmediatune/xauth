@@ -1,7 +1,7 @@
 <html>
 <script type="text/javascript">
-	if(window.name && window.name.match && window.name.match(/^(true|false),/)){
-		parent.xauth._callback.apply(parent.xauth, window.name.split(",", 2));
+	if(window.name && window.name.match && window.name.match(/^\d/)){
+		parent.xauth._callback(parseInt(window.name.charAt(0)), window.name.slice(1));
 	}else{
 		window.name = window.location.href;
 		parent.xauth._init();
