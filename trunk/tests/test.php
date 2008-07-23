@@ -1,7 +1,7 @@
 <?php
 session_start();
 $referrer = parse_url($_SERVER['HTTP_REFERER']);
-if (!$_SESSION['referrer']) $_SESSION['referrer'] = $referrer['host'];
+if ($_SESSION['referrer'] != $_SERVER['HTTP_HOST']) $_SESSION['referrer'] = $referrer['host'];
 ?>
 <?php if ($_COOKIE['token'] == 'yes' && $_SESSION['authorized'] && $_SESSION['authorized'][$_SESSION['referrer']]): ?>
 <html>
