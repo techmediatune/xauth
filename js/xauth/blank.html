@@ -1,0 +1,10 @@
+<html>
+<script type="text/javascript">
+	if(window.name && window.name.match && window.name.match(/^(true|false),/)){
+		parent.xauth._callback.apply(parent.xauth, window.name.split(",", 2));
+	}else{
+		window.name = window.location.href;
+		parent.xauth._init();
+	}
+</script>
+</html>
