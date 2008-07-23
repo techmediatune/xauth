@@ -6,18 +6,22 @@
 		<script type="text/javascript" charset="utf-8" src="../js/xauth/xauth.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			window.onload = function(){
-				xauth.addOnLoad(function(status, token, node){
-					alert([status, token, node]);
-					node.style.display = "none";
-				});
 				xauth.init({
 					node: document.getElementById("wrapper"),
 					url: "http://pottedmeat.dojotoolkit.org/xauth/tests/test.php"
+				}).addCallback(function(status, token, node){
+					alert([status, token, node]);
+					node.style.display = "none";
 				});
 			};
 		</script>
 	</head>
 	<body>
+		<ul>
+			<li>If you don't have a cookie with the site, you will have to log in.</li>
+			<li>Logging in through this interface will keep you logged in for future visits.</li>
+			<li>If you had logged in through their site, but haven't approved this domain, approval will be requested.</li>
+		</ul>
 		<div id="wrapper">
 			<iframe src="../js/xauth/blank.html"></iframe>
 		</div>
