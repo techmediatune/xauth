@@ -1,10 +1,10 @@
 <html>
 <script type="text/javascript">
-	if(window.name && window.name.match && window.name.match(/^\d/)){
-		parent.xauth._callback(parseInt(window.name.charAt(0)), window.name.slice(1));
+	if(!window.location.hash){
+		window.name = window.location.href + "#callback";
+		parent.xauth._init(window);
 	}else{
-		window.name = window.location.href;
-		parent.xauth._init();
+		parent.xauth._callback(window);
 	}
 </script>
 </html>
