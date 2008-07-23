@@ -7,7 +7,8 @@
 		<script type="text/javascript" charset="utf-8">
 			window.onload = function(){
 				xauth.addOnLoad(function(status, token, node){
-					console.debug(status, token, node);
+					alert([status, token, node]);
+					node.style.display = "none";
 				});
 				xauth.init({
 					node: document.getElementById("wrapper"),
