@@ -8,7 +8,7 @@
 			window.onload = function(){
 				xauth.init({
 					node: document.getElementById("wrapper"),
-					url: "http://pottedmeat.dojotoolkit.org/xauth/tests/test.php"
+					url: "http://pottedmeat.dojotoolkit.org/xauth/tests/test_full_login.php"
 				}).addCallback(function(status, token, node){
 					alert([status, token, node]);
 					node.style.display = "none";
