@@ -1,7 +1,6 @@
 <html>
 <script type="text/javascript">
-	if(!window.location.hash){
-		window.name = window.location.href + "#callback";
+	if(!window.location.search){
 		parent.xauth._init(window);
 	}else{
 		parent.xauth._callback(window);

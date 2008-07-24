@@ -46,18 +46,25 @@ xauth = {
 	_init: function(child){
 		var stack = xauth._getStack(child);
 		if(stack){
-			stack.iframe.contentWindow.location = stack.url;
+			child.name = child.location.href + "?loaded";
+			child.location = stack.url;
 		}
 	},
 	_callback: function(child){
 		var stack = xauth._getStack(child);
 		if(stack){
-			if(!child.name && !child.name.length){
-				throw new Error("xauth expects server to assign a value to window.name");
+			var status = 0;
+			var statuses = child.location.hash.slice(1).split("&");
+			for(var i=0, s; s=statuses[i]; i++){
+				var keyval = s.split("=");
+				if(keyval[0] == "xauth"){
+					var inted = parseInt(keyval[1]);
+					status = (inted == keyval[1] && !isNaN(inted)) ? inted : keyval[1];
+				}
 			}
 
 			for(var i=0, c; c=stack._callbacks[i]; i++){
-				c[1].call(c[0], parseInt(child.name.charAt(0)), child.name.slice(1), stack.node);
+				c[1].call(c[0], status, child.name, stack.node);
 			}
 		}
 	}
