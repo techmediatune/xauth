@@ -37,7 +37,7 @@ window.location = redirect + "#xauth=1";
 	"http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<body>
-		<p>Log in to <a href="test_cookie_approval_popup.php" target="_new">pottedmeat.dojotoolkit.org</a> and then click "Continue".</p>
+		<p>Log in <a href="test_cookie_approval_popup.php" target="_new">here</a> and then click "Continue".</p>
 		<form method="POST" action="test_cookie_approval.php">
 			<input type="submit" name="continue" value="Continue" />
 		</form>
