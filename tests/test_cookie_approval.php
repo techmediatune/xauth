@@ -6,18 +6,18 @@ if ($referrer['host'] != $_SERVER['HTTP_HOST']) $_SESSION['referrer'] = $referre
 <?php if ($_COOKIE['test_cookie_approval'] == 'yes' && $_SESSION['authorized'] && $_SESSION['authorized'][$_SESSION['referrer']]): ?>
 <html>
 <script>
-var l = window.name;
-window.name = "1automatic";
-window.location = l;
+var redirect = window.name;
+window.name = "automatic";
+window.location = redirect + "#xauth=1";
 </script>
 </html>
 <?php elseif ($_COOKIE['test_cookie_approval'] == 'yes' && $_POST['authorize']): ?>
 <?php $_SESSION['authorized'][$_SESSION['referrer']] = true; ?>
 <html>
 <script>
-var l = window.name;
-window.name = "1approved";
-window.location = l;
+var redirect = window.name;
+window.name = "approved";
+window.location = redirect + "#xauth=1";
 </script>
 </html>
 <?php elseif ($_COOKIE['test_cookie_approval'] == 'yes' && $_POST['continue']): ?>
