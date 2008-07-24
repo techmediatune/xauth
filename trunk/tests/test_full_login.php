@@ -6,27 +6,27 @@ if ($referrer['host'] != $_SERVER['HTTP_HOST']) $_SESSION['referrer'] = $referre
 <?php if ($_COOKIE['test_full_login'] == 'yes' && $_SESSION['authorized'] && $_SESSION['authorized'][$_SESSION['referrer']]): ?>
 <html>
 <script>
-var l = window.name;
-window.name = "1automatic";
-window.location = l;
+var redirect = window.name;
+window.name = "automatic";
+window.location = redirect + "#xauth=1";
 </script>
 </html>
 <?php elseif ($_COOKIE['test_full_login'] == 'yes' && $_POST['authorize']): ?>
 <?php $_SESSION['authorized'][$_SESSION['referrer']] = true; ?>
 <html>
 <script>
-var l = window.name;
-window.name = "1authorized";
-window.location = l;
+var redirect = window.name;
+window.name = "authorized";
+window.location = redirect + "#xauth=1";
 </script>
 </html>
 <?php elseif ($_COOKIE['test_full_login'] == 'yes' && $_POST['deny']): ?>
 <?php $_COOKIE['test_full_login'] = ''; ?>
 <html>
 <script>
-var l = window.name;
-window.name = "0";
-window.location = l;
+var redirect = window.name;
+window.name = "";
+window.location = redirect + "#xauth=0";
 </script>
 </html>
 <?php elseif ($_COOKIE['test_full_login'] == 'yes'): ?>
@@ -46,9 +46,9 @@ window.location = l;
 <?php $_SESSION['authorized'][$_SESSION['referrer']] = true; ?>
 <html>
 <script>
-var l = window.name;
-window.name = "1login";
-window.location = l;
+var redirect = window.name;
+window.name = "login";
+window.location = redirect + "#xauth=1";
 </script>
 </html>
 <?php else: ?>
