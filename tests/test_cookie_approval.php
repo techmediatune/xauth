@@ -21,7 +21,6 @@ window.location = redirect + "#xauth=1";
 </script>
 </html>
 <?php elseif ($_COOKIE['test_cookie_approval'] == 'yes' && $_POST['deny']): ?>
-<?php $_SESSION['authorized'][$_SESSION['referrer']] = true; ?>
 <html>
 <script>
 var redirect = window.name;
