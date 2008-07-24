@@ -20,6 +20,15 @@ window.name = "approved";
 window.location = redirect + "#xauth=1";
 </script>
 </html>
+<?php elseif ($_COOKIE['test_cookie_approval'] == 'yes' && $_POST['deny']): ?>
+<?php $_SESSION['authorized'][$_SESSION['referrer']] = true; ?>
+<html>
+<script>
+var redirect = window.name;
+window.name = "denied";
+window.location = redirect + "#xauth=0";
+</script>
+</html>
 <?php elseif ($_COOKIE['test_cookie_approval'] == 'yes'): ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 	"http://www.w3.org/TR/html4/loose.dtd">
