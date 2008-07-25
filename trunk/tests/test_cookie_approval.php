@@ -34,7 +34,7 @@ window.location = redirect + "#xauth=0";
 <html>
 	<body>
 		<form method="POST" action="test_cookie_approval.php">
-			<p>Authorize?</p>
+			<p>Authorize <?php print $_SESSION['referrer']; ?>?</p>
 			<input type="submit" name="authorize" value="Yes">
 			<input type="submit" name="deny" value="No">
 		</form>
