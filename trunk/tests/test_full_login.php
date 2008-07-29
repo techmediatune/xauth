@@ -2,6 +2,7 @@
 session_start();
 $referrer = parse_url($_SERVER['HTTP_REFERER']);
 if ($referrer['host'] != $_SERVER['HTTP_HOST']) $_SESSION['referrer'] = $referrer['host'];
+elseif ($_POST['referrer']) $_SESSION['referrer'] = $_POST['referrer'];
 ?>
 <?php if ($_COOKIE['test_full_login'] == 'yes' && $_SESSION['authorized'] && $_SESSION['authorized'][$_SESSION['referrer']]): ?>
 <html>
@@ -58,6 +59,7 @@ window.location = redirect + "#xauth=1";
 	<body>
 		<p>Enter invader/zim for username/password (if you want)</p>
 		<form method="POST" action="test_full_login.php">
+			<input type="hidden" name="referrer" value="<?php print $_SESSION['referrer']; ?>" />
 			<label>Username: <input name="username" /></label><br />
 			<label>Password: <input type="password" name="password" /></label><br />
 			<input type="submit" value="Login" />
